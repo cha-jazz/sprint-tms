@@ -1,0 +1,17 @@
+FROM node:12.10.0
+
+WORKDIR /home/sprint-web
+
+# NB: Only copy files that are required by 'npm install'
+# The 'src' directory will be mounted as a shared volume by docker-compose (allowing for live-reload)
+COPY angular.json /home/sprint-web
+COPY package.json /home/sprint-web
+COPY package-lock.json /home/sprint-web
+COPY tsconfig.json /home/sprint-web
+COPY tslint.json /home/sprint-web
+
+# before switching to non-root user, change ownership of home
+RUN chown -R node:node /home/sprint-web
+USER node
+
+RUN npm install --no-optional

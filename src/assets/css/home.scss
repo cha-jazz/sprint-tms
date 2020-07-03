@@ -1,0 +1,50 @@
+@import "main";
+
+.bg-main-page{
+  background: url("../images/bg-main-login.png") no-repeat;
+  min-height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  .caption{
+    color: #fff;
+    text-align: right;
+    margin-right: 20px;
+    .title{
+      font-size: 4em;
+      line-height: 1;
+      @include BREAKPOINT('L'){
+        font-size: 3em;
+      }
+      @include BREAKPOINT('M'){
+        font-size: 2em;
+      }
+    }
+    pre{
+      color: inherit;
+    }
+  }
+}
+.form-login{
+  font-size: 1.2em;
+  height: 100%;
+  color: $color-font3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  form{
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eaedf0;
+  }
+  .logo{
+    margin-bottom: 1.5em;
+  }
+  .copyright{
+    font-size: 0.6em;
+    position: absolute;
+    bottom: 10px;
+  }
+}

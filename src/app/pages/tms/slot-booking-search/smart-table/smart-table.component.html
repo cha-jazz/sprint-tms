@@ -1,0 +1,83 @@
+<div>
+  <nb-card>
+    <nb-card-header>
+      <div class="row ">
+        <div class="col-12 col-sm-12 text-center">
+          <h5>ค้นหาข้อมูลลูกค้า</h5>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="row mb-4">
+        <div class="col-12 col-sm-4 offset-sm-2 mainText">
+          <mat-label class="information">เงื่อนไขการค้นหา</mat-label>
+          <mat-form-field appearance="outline" class="example-full-width ">
+            <mat-select>
+              <mat-option value="">- Please Select -</mat-option>
+              <mat-option *ngFor="let item of select.condition" [value]="item">
+                {{item}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-12 col-sm-4 mainText">
+          <mat-label class="information">ข้อความ</mat-label>
+          <mat-form-field appearance="outline" class="example-full-width">
+            <input matInput>
+          </mat-form-field>
+        </div>
+        <div class="col-12 col-sm-2">
+          <button nbButton (click)="search()">ค้นหา</button>
+        </div>
+      </div>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="table.data_source" matSort>
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-5"> เลขที่การจอง </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <div>{{row.name}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> เส้นทาง </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <div>{{row.email}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-7"> วันที่ </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <div>{{row.phone}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="the1card">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-9"> รอบนัดหมาย </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <div>{{row.the1card}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-8"> SKU </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <div>{{row.address}}</div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="table.displayed_columns"></tr>
+          <tr mat-row *matRowDef="let row; columns: table.displayed_columns;" align="center" (click)="getDetail(row)"></tr>
+        </table>
+      </div>
+      <div class="row justify-content-sm-center">
+        <div class="col-12 col-sm-auto">
+          <button nbButton fullWidth status="primary" (click)="back()"><i
+              class="fas fa-pencil-alt"></i>&nbsp;ย้อนกลับ</button>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

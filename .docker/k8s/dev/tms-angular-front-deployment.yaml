@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tms-angular-front
+  namespace: tms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tms-angular-front
+  template:
+    metadata:
+      labels:
+        app: tms-angular-front
+    spec:
+      containers:
+      - name: tms-angular-front
+        image: cgtmsarcdev.azurecr.io/sprint-web:dev
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        env:
+          - name: TZ
+            value: Asia/Bangkok
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: cgtmsarcdev-azurecr-secret

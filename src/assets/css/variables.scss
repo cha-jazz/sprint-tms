@@ -1,0 +1,30 @@
+/*-------------------
+- Fonts
+-------------------*/
+@font-face {
+  font-family: 'DBHeaventv3_2';
+  src: url('fonts/DBHeaventv3_2.eot');
+  src: url('fonts/DBHeaventv3_2.eot') format('embedded-opentype'),
+  url('fonts/DBHeaventv3_2.woff2') format('woff2'),
+  url('fonts/DBHeaventv3_2.woff') format('woff'),
+  url('fonts/DBHeaventv3_2.ttf') format('truetype'),
+  url('fonts/DBHeaventv3_2.svg#DBHeaventv3_2') format('svg');
+}
+
+@font-face {
+  font-family: 'DBHeaventBdv3_2';
+  src: url('fonts/DBHeaventBdv3_2.eot');
+  src: url('fonts/DBHeaventBdv3_2.eot') format('embedded-opentype'),
+  url('fonts/DBHeaventBdv3_2.woff2') format('woff2'),
+  url('fonts/DBHeaventBdv3_2.woff') format('woff'),
+  url('fonts/DBHeaventBdv3_2.ttf') format('truetype'),
+  url('fonts/DBHeaventBdv3_2.svg#DBHeaventBdv3_2') format('svg');
+}
+
+$color-theme: #512173;
+$color-theme2: #ed7203;
+$color-font: #5a6b7f;
+$color-font2: #a5a9ae;
+$color-font3: #868686;
+
+$item-corner: 5px;

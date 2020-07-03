@@ -1,0 +1,71 @@
+<div>
+  <nb-card>
+    <nb-card-header>
+      <div class="row ">
+        <div class="col-12 col-sm-12 text-center">
+          <h5>ขั้นตอนการผูก POS Ticket กับ Slot Booking</h5>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <div cdkDropListGroup>
+        <div class="row">
+          <div class="col-sm-4 offset-sm-1">
+            <div class="row justify-content-sm-center">
+              <h6>รายการสินค้าที่จัดส่ง</h6>
+            </div>
+            <div class="row scroll-bar-y-drag-drop">
+              <nb-card class="width-100">
+                <nb-card-body>
+                  <div cdkDropList [cdkDropListData]="todo" class="example-list" (cdkDropListDropped)="drop($event)">
+                    <div class="example-box" *ngFor="let movie of todo" cdkDrag>
+                      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                      {{movie}}
+                    </div>
+                  </div>
+                </nb-card-body>
+              </nb-card>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="row justify-content-sm-center">
+              ->
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="row justify-content-sm-center">
+              <h6>รายการ Slot Booking</h6>
+            </div>
+            <div class="scroll-bar-y-drag-drop">
+              <div *ngFor="let item of list">
+                <div class="row">
+                  <nb-card class="width-100">
+                    <nb-card-body>
+                      <div cdkDropList [cdkDropListData]="item.done" class="example-list"
+                        (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let movie of item.done" cdkDrag>
+                          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                          {{movie}}
+                        </div>
+                      </div>
+                    </nb-card-body>
+                  </nb-card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-sm-center">
+        <div class="col-12 col-sm-auto">
+          <button nbButton fullWidth status="primary" (click)="back()"><i
+              class="fas fa-pencil-alt"></i>&nbsp;กลับ</button>
+        </div>
+        <div class="col-12 col-sm-auto">
+          <button nbButton fullWidth status="danger" (click)="next()"><i
+              class="fas fa-sync-alt"></i>&nbsp;ขั้นตอนถัดไป</button>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

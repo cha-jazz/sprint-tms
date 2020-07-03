@@ -1,0 +1,30 @@
+/*-------------------
+- Fonts
+-------------------*/
+@font-face {
+  font-family: 'DBHeaventv3_2';
+  src: url("fonts/DBHeaventv3_2.eot");
+  src: url("fonts/DBHeaventv3_2.eot") format("embedded-opentype"), url("fonts/DBHeaventv3_2.woff2") format("woff2"), url("fonts/DBHeaventv3_2.woff") format("woff"), url("fonts/DBHeaventv3_2.ttf") format("truetype"), url("fonts/DBHeaventv3_2.svg#DBHeaventv3_2") format("svg"); }
+/*-------------------
+- Element
+-------------------*/
+html, body {
+  font-family: 'DBHeaventv3_2';
+  font-size: 1.1rem;
+  color: #44566c;
+  height: 100vh;
+  background: #fff; }
+
+.no-gap {
+  padding-left: 0;
+  padding-right: 0; }
+
+.link-style {
+  color: #868686; }
+
+/*-------------------
+- Header & Footer
+-------------------*/
+/*-------------------
+- Slider
+-------------------*/

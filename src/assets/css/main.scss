@@ -1,0 +1,223 @@
+@import "variables";
+@import "mixins";
+
+/*-------------------
+- Element
+-------------------*/
+html, body {
+  font-family: 'DBHeaventv3_2';
+  font-size: 1.1rem;
+  color: $color-font;
+  height: 100vh;
+  background: #fff;
+}
+
+b{
+  font-family: 'DBHeaventBdv3_2';
+}
+
+.no-gap {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.small-font {
+  font-size: 0.8em;
+}
+
+.link-style {
+  color: $color-font3;
+  text-decoration: underline;
+  transition: 0.3s;
+
+  &:hover {
+    color: $color-theme;
+  }
+}
+
+.link-style2 {
+  color: $color-theme;
+  &:hover {
+    color: $color-font2;
+  }
+}
+
+.btn-style {
+  color: #fff;
+  background: $color-theme;
+  border: none;
+  -webkit-border-radius: $item-corner;
+  -moz-border-radius: $item-corner;
+  border-radius: $item-corner;
+  cursor: pointer;
+  padding: 5px 15px;
+
+  &.full {
+    display: block;
+    width: 100%;
+  }
+}
+
+.form-style {
+  &.full {
+    width: 100%;
+  }
+
+  input {
+    color: $color-font;
+    appearance: none;
+    width: 100%;
+    margin: 10px 0;
+    border: none;
+    background: #eff4f8;
+    -webkit-border-radius: $item-corner;
+    -moz-border-radius: $item-corner;
+    border-radius: $item-corner;
+    padding: 2px 15px;
+    position: relative;
+
+    &[type='password'] {
+      letter-spacing: 4px;
+
+      &::placeholder {
+
+      }
+    }
+  }
+
+  .list-input {
+    width: 100%;
+    position: relative;
+
+    &.is-icon {
+      input {
+        padding-left: 40px;
+      }
+    }
+
+    &:after {
+      content: "";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 0.7em;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &.user {
+      &:after {
+        content: "\f007";
+      }
+    }
+
+    &.password {
+      &:after {
+        content: "\f023";
+      }
+    }
+  }
+
+  .group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .item {
+      input, label {
+        width: initial;
+        display: inline-block;
+        margin: auto;
+      }
+
+      input {
+        &[type='checkbox'] {
+          vertical-align: middle;
+        }
+      }
+
+      label {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+.checkbox {
+  width: 100%;
+  position: relative;
+  display: block;
+  label {
+    display: block;
+    padding-left: 35px;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+    span {
+      line-height: 1;
+      position: absolute;
+      top: 50%;
+      left: 30px;
+      transform: translateY(-50%);
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 20px;
+      height: 20px;
+      transition: transform 0.28s ease;
+      border-radius: 3px;
+      border: 2px solid $color-theme2;
+    }
+    &:after {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 5px;
+      border-bottom: 2px solid #fff;
+      border-left: 2px solid #fff;
+      transform: rotate(-45deg) scale(0);
+      transition: transform ease 0.25s;
+      position: absolute;
+      top: 10px;
+      left: 6px;
+    }
+  }
+  input[type="checkbox"] {
+    width: auto;
+    opacity: 0.00000001;
+    position: absolute;
+    left: 0;
+    margin-left: -20px;
+    &:checked ~ label{
+      &:before {
+        border: 2px solid $color-theme2;
+        background: $color-theme2;
+      }
+      &:after {
+        transform: rotate(-45deg) scale(1);
+      }
+    }
+    &:focus + label::before {
+      outline: 0;
+    }
+  }
+}
+
+/*-------------------
+- Header & Footer
+-------------------*/
+header {
+
+}
+
+footer {
+
+}
+
+/*-------------------
+- Slider
+-------------------*/

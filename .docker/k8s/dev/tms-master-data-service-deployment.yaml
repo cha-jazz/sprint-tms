@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tms-master-data-service
+  namespace: tms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tms-master-data-service
+  template:
+    metadata:
+      labels:
+        app: tms-master-data-service
+    spec:
+      containers:
+      - name: tms-master-data-service
+        image: cgtmsarcdev.azurecr.io/tms-master-data-service:v1.0.0-dev
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      imagePullSecrets:
+        - name: cgtmsarcdev-azurecr-secret

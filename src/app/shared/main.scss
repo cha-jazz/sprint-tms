@@ -1,0 +1,203 @@
+/*#region Table*/
+
+table {
+    width: 100%;
+}
+.headCell {
+    font-size: 83%;
+    font-weight: bold;
+}
+.bodyCell {
+    font-size: 80%;
+}
+td.mat-cell,
+td.mat-footer-cell,
+th.mat-header-cell {
+    padding: 0.3% !important;
+}
+.mat-header-cell {
+    text-align: center;
+}
+::ng-deep .mat-sort-header-container {
+    display: flex;
+    justify-content: center;
+}
+.mat-elevation-z8 {
+    // box-shadow: 0px 20px 20px -10px rgb(191, 204, 223);
+    box-shadow: none;
+    overflow-x: auto;
+}
+.none-shadow {
+    box-shadow: none;
+}
+mat-row.example-element-row:hover {
+    background: whitesmoke;
+}
+
+mat-row.example-element-row:active {
+    background: #efefef;
+}
+tr.mat-row:hover {
+    // hover table row
+    background: whitesmoke;
+}
+
+tr.mat-row:active {
+    background: #efefef;
+}
+.btn-action {
+    width: 10%;
+}
+.input-width {
+    width: 95%;
+}
+.width-table {
+    width: 150%;
+}
+
+/*#endregion */
+
+/*#region Input box*/
+/*#region size input*/
+::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+    padding: 0.4em 0px !important;
+}
+::ng-deep .mat-form-field-label-wrapper {
+    top: -1.5em;
+}
+
+::ng-deep
+    .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+    .mat-form-field-label {
+    transform: translateY(-1.1em) scale(0.75);
+    width: 133.33333%;
+}
+/*#endregion */
+.example-full-width {
+    width: 100%;
+}
+.example-full-width-center {
+    margin-top: 13px;
+    width: 100%;
+    text-align: center;
+}
+.mainText ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    //change color in box
+    background-color: #ffffff;
+    border-radius: 5px;
+    //box-shadow: 0px 14px 20px -10px rgb(191, 204, 223);
+}
+.detailText ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    //change color in box
+    background-color: #f7f9fc;
+    border-radius: 5px;
+}
+input.number-not-up-down::-webkit-outer-spin-button,
+input.number-not-up-down::-webkit-inner-spin-button {
+    //hide up or down in type number of input
+    display: none;
+}
+
+.width-text-area {
+    resize: none;
+    width: 100%;
+}
+.input_error {
+    border: 2px solid red;
+}
+/*#endregion */
+
+/*#region Text*/
+.text-head {
+    font-size: 85%;
+    font-weight: bold;
+}
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.information {
+    font-weight: bold;
+    font-size: 88%;
+}
+.textRed {
+    color: #ff3d71;
+}
+.row-wrap {
+    word-wrap: break-word;
+    white-space: normal;
+}
+/*#endregion */
+
+/*#region Button*/
+.btn-size {
+    font-size: 83% !important;
+    // width: 74px !important;
+    height: 85% !important;
+}
+.btn-circle {
+    background-color: #ec7310;
+    border-radius: 50%;
+    padding: 17px 20px;
+    color: white;
+}
+.padding {
+    padding-top: 2%;
+}
+a:hover {
+    background-color: #f89e55;
+    color: white;
+}
+
+/*#endregion */
+
+/*#region radio Button*/
+.scroll-bar-y-radio {
+    overflow-y: scroll;
+    max-height: 130px;
+}
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.example-radio-button {
+    margin: 5px;
+}
+/*#endregion */
+
+/*#region width*/
+.width-100 {
+    width: 100%;
+}
+.responsive {
+    width: 100%;
+    height: auto;
+}
+/*#endregion */
+
+/*#region spinner*/
+::ng-deep nb-spinner {
+    z-index: auto !important;
+}
+/*#endregion */
+
+/*#region drag drop*/
+.scroll-bar-y-drag-drop {
+    height: 350px;
+    overflow-y: auto;
+}
+
+/*#endregion */
+
+/*#region drag drop*/
+.example-chip-list {
+    width: 100%;
+}
+/*#endregion */

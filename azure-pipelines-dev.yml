@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master-dev
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Docker@0
+  displayName: 'Build an image'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'SCM TMS Container Registry'
+    dockerFile: build/azure/.docker/Dockerfile
+    defaultContext: False
+    context: '$(System.DefaultWorkingDirectory)'
+    imageName: 'cgtmsarcdev.azurecr.io/sprint-web:dev'
+
+- task: Docker@2
+  displayName: 'Push an image'
+  inputs:
+    containerRegistry: 'SCM TMS Container Registry'
+    repository: 'sprint-web'
+    command: 'push'
+    tags: 'dev'

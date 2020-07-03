@@ -1,0 +1,579 @@
+<div>
+  <nb-card>
+    <nb-card-header>
+      <div class="row ">
+        <div class="col-12 col-sm-12 text-center">
+          <h5>หน้าบันทึกรายการการขาย</h5>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <div>
+        <div class="row">
+          <div class="col-12 col-sm-12">
+            <h6>ข้อมูลผู้ซื้อสินค้า</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-4 offset-sm-2 mainText">
+            <mat-label class="information">ชื่อผู้ซื้อสินค้า</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-4 mainText">
+            <mat-label class="information">นามสกุล</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-2">
+            <button nbButton (click)="searchCustomer()">ค้นหา</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-8 offset-sm-2 mainText">
+            <mat-label class="information">เบอร์โทรศัพท์ผู้ซื้อสินค้า</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-4 offset-sm-2 mainText">
+            <mat-label class="information">E-Mail</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-4 mainText">
+            <mat-label class="information">The 1 Card</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <div class="row">
+          <div class="col-12 col-sm-12">
+            <h6>ข้อมูลผู้รับสินค้า</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-4 offset-sm-2 mainText">
+            <mat-label class="information">ชื่อผู้รับสินค้า</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-4 mainText">
+            <mat-label class="information">นามสกุล</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-8 offset-sm-2 mainText">
+            <mat-label class="information">เบอร์โทรศัพท์ผู้รับสินค้า</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-8 offset-sm-2 mainText">
+            <mat-label class="information">ที่อยู่ที่จัดส่ง</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width ">
+              <mat-select>
+                <mat-option value="">- Please Select -</mat-option>
+                <!-- <mat-option *ngFor="let item of select.delivery_type">
+                {{item.nameEn}}
+              </mat-option> -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-4 offset-sm-2 mainText">
+            <mat-label class="information">จังหวัด</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width ">
+              <mat-select>
+                <mat-option value="">- Please Select -</mat-option>
+                <!-- <mat-option *ngFor="let item of select.delivery_type">
+                {{item.nameEn}}
+              </mat-option> -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-4 mainText">
+            <mat-label class="information">เขต/อำเภอ</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width ">
+              <mat-select>
+                <mat-option value="">- Please Select -</mat-option>
+                <!-- <mat-option *ngFor="let item of select.delivery_type">
+                {{item.nameEn}}
+              </mat-option> -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-4 offset-sm-2 mainText">
+            <mat-label class="information">แขวง/ตำบล</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width ">
+              <mat-select>
+                <mat-option value="">- Please Select -</mat-option>
+                <!-- <mat-option *ngFor="let item of select.delivery_type">
+                {{item.nameEn}}
+              </mat-option> -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-4 mainText">
+            <mat-label class="information">รหัสไปรษณีย์</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width ">
+              <mat-select>
+                <mat-option value="">- Please Select -</mat-option>
+                <!-- <mat-option *ngFor="let item of select.delivery_type">
+                {{item.nameEn}}
+              </mat-option> -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-2 offset-sm-2 mainText">
+            <mat-label class="information">บ้านเลขที่</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-2 mainText">
+            <mat-label class="information">เลขห้อง</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-2 mainText">
+            <mat-label class="information">ชั้น</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-2 offset-sm-2 mainText">
+            <mat-label class="information">หมู่บ้าน</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-2 mainText">
+            <mat-label class="information">หมู่</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-2 mainText">
+            <mat-label class="information">ซอย</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-2 mainText">
+            <mat-label class="information">ถนน</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row justify-content-sm-center mb-4">
+          <div class="size">
+            <ngx-map-marker-component></ngx-map-marker-component>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-8 offset-sm-2 mainText">
+            <mat-label class="information">ที่อยู่ออกใบกำกับภาษี</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width ">
+              <mat-select>
+                <mat-option value="">- Please Select -</mat-option>
+                <!-- <mat-option *ngFor="let item of select.delivery_type">
+                {{item.nameEn}}
+              </mat-option> -->
+              </mat-select>
+            </mat-form-field>
+            <mat-checkbox>
+            </mat-checkbox>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-4 offset-sm-2 mainText">
+            <mat-label class="information">หมายเลขผู้เสียภาษี</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-4 mainText">
+            <mat-label class="information">ชื่อ</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-4 offset-sm-2 mainText">
+            <mat-label class="information">ชื่อสาขา</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-4 mainText">
+            <mat-label class="information">เลขที่สาขา</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-4 offset-sm-2 mainText">
+            <mat-label class="information">เบอร์โทรศัพท์</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-4 mainText">
+            <mat-label class="information">E-Mail</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-4 offset-sm-2 mainText">
+            <mat-label class="information">จังหวัด</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width ">
+              <mat-select>
+                <mat-option value="">- Please Select -</mat-option>
+                <!-- <mat-option *ngFor="let item of select.delivery_type">
+                {{item.nameEn}}
+              </mat-option> -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-4 mainText">
+            <mat-label class="information">เขต/อำเภอ</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width ">
+              <mat-select>
+                <mat-option value="">- Please Select -</mat-option>
+                <!-- <mat-option *ngFor="let item of select.delivery_type">
+                {{item.nameEn}}
+              </mat-option> -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-4 offset-sm-2 mainText">
+            <mat-label class="information">แขวง/ตำบล</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width ">
+              <mat-select>
+                <mat-option value="">- Please Select -</mat-option>
+                <!-- <mat-option *ngFor="let item of select.delivery_type">
+                {{item.nameEn}}
+              </mat-option> -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-4 mainText">
+            <mat-label class="information">รหัสไปรษณีย์</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width ">
+              <mat-select>
+                <mat-option value="">- Please Select -</mat-option>
+                <!-- <mat-option *ngFor="let item of select.delivery_type">
+                {{item.nameEn}}
+              </mat-option> -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-2 offset-sm-2 mainText">
+            <mat-label class="information">บ้านเลขที่</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-2 mainText">
+            <mat-label class="information">เลขห้อง</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-2 mainText">
+            <mat-label class="information">ชั้น</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-2 offset-sm-2 mainText">
+            <mat-label class="information">หมู่บ้าน</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-2 mainText">
+            <mat-label class="information">หมู่</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-2 mainText">
+            <mat-label class="information">ซอย</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-2 mainText">
+            <mat-label class="information">ถนน</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <div class="row">
+          <div class="col-12 col-sm-12">
+            <h6>ข้อมูลผู้ซื้อสินค้า</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 offset-sm-2 mainText">
+            <mat-label class="information">POS Ticket No.</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput [(ngModel)]="data">
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-2 mainText">
+            <button nbButton fullWidth status="primary" (click)="addPosTicket()">ค้นหา POS Ticket</button>
+          </div>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="outline" class="example-chip-list">
+            <mat-chip-list>
+              <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+                {{fruit.name}}
+                <mat-icon matChipRemove >cancel</mat-icon>
+              </mat-chip>
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="table.data_source" matSort>
+
+            <ng-container matColumnDef="bookingNumber">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> เลขที่ Ticket </th>
+              <td mat-cell *matCellDef="let row" class="bodyCell">
+                <!-- <div>{{row.bookingNumber}}</div> -->
+                <div>{{row.shipmentNumber}}</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="zoneName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> SKU </th>
+              <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.zoneName}}</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="deliveryDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> ชื่อสินค้า </th>
+              <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.deliveryDate}}</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="deliveryDateLabel">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> จำนวน </th>
+              <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.deliveryDateLabel}}</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="skuCode">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> ราคาขาย </th>
+              <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.skucode}}</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="productName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> ส่วนลด </th>
+              <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.productName}}</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="serviceName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> ราคาหักส่วนลด </th>
+              <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.serviceName}}</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="bookingUser">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> ต้นทางสินค้า </th>
+              <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.bookingUser}}</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="timecount">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> เข้าสาขา </th>
+              <td mat-cell *matCellDef="let row; let i = index" class="bodyCell">
+                <div *ngIf="row.min!='00'||row.sec!='00'">{{row.timecount}}</div>
+                <div *ngIf="row.min=='00'&&row.sec=='00'">Time Up</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> สาขาผู้ส่ง</th>
+              <td mat-cell *matCellDef="let row" class="bodyCell">
+                <button id="btn_delete{{row.bookingDate}}" class="btn-action" nbButton status="danger"
+                  (click)="action_delete(row)">
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="table.displayed_columns"></tr>
+            <tr mat-row *matRowDef="let row; columns: table.displayed_columns;" align="center"></tr>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-8 offset-sm-2 mainText">
+            <mat-label class="information">เลขที่ Web Order</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-8 offset-sm-2 mainText">
+            <mat-label class="information">Tracking NO.</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <div class="row mb-4">
+          <div class="col-12 col-sm-12">
+            <h6>ค้นหา Slot Booking</h6>
+          </div>
+        </div>
+      </div>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="table.data_source" matSort>
+
+          <ng-container matColumnDef="bookingNumber">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-5"> เลขที่การจอง </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <!-- <div>{{row.bookingNumber}}</div> -->
+              <div>{{row.shipmentNumber}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="zoneName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> เส้นทาง </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <div>{{row.zoneName}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="deliveryDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-7"> วันที่ </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <div>{{dateFormat(row.deliveryDate)}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="deliveryDateLabel">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-9"> รอบนัดหมาย </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <div>{{row.deliveryDateLabel}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="skuCode">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-8"> SKU </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <div>{{row.skucode}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="productName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-5"> สินค้าหลัก </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <div>{{row.productName}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="serviceName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-5"> ประเภทบริการ </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <div>{{row.serviceName}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="bookingUser">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-5"> ผู้ทำการจอง </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <div>{{row.bookingUser}}</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="timecount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-5"> เวลา </th>
+            <td mat-cell *matCellDef="let row; let i = index" class="bodyCell">
+              <div *ngIf="row.min!='00'||row.sec!='00'">{{row.timecount}}</div>
+              <div *ngIf="row.min=='00'&&row.sec=='00'">Time Up</div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef class="headCell width-5"> </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+              <button id="btn_delete{{row.bookingDate}}" class="btn-action" nbButton status="danger"
+                (click)="action_delete(row)">
+                <i class="far fa-trash-alt"></i>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="table.displayed_columns"></tr>
+          <tr mat-row *matRowDef="let row; columns: table.displayed_columns;" align="center"></tr>
+        </table>
+      </div>
+      <div class="row justify-content-sm-center">
+        <div class="col-12 col-sm-auto">
+          <button nbButton fullWidth status="primary" (click)="back()"><i
+              class="fas fa-pencil-alt"></i>&nbsp;ย้อนกลับ</button>
+        </div>
+        <div class="col-12 col-sm-auto">
+          <button nbButton fullWidth status="danger" (click)="next()"><i
+              class="fas fa-sync-alt"></i>&nbsp;ขั้นตอนถัดไป</button>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>
