@@ -1,58 +1,9 @@
-<!-- <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="large">
-    <nb-card-body class="nb-Body">
-        <div class="row mb-4 justify-content-sm-center">
-            <div class="col-sm-auto">
-                <h1>TMS</h1>
-            </div>
-        </div>
-        <div class="row justify-content-sm-center">
-            <div class="col-sm-3">
-                <mat-label class="text-head">Login Name</mat-label>
-            </div>
-        </div>
-        <div class="row justify-content-sm-center">
-            <div class="col-sm-3">
-                <mat-form-field appearance="outline" class="example-full-width">
-                    <input matInput #pRefUser [(ngModel)]="validateBind.user" [formControl]="validate.user"
-                        (keyup)="onKeyEnter($event)" required>
-                    <mat-error *ngIf="validate.user.errors?.required">Please assign login name</mat-error>
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row justify-content-sm-center">
-            <div class="col-sm-3">
-                <mat-label class="text-head">Password</mat-label>
-            </div>
-        </div>
-        <div class="row mb-4 justify-content-sm-center">
-            <div class="col-sm-3">
-                <mat-form-field appearance="outline" class="example-full-width">
-                    <input matInput type="password" #pRefPassword [(ngModel)]="validateBind.password"
-                        [formControl]="validate.password" (keyup)="onKeyEnter($event)" required>
-                    <mat-error *ngIf="validate.password.errors?.required">Please assign password</mat-error>
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row mb-4 justify-content-sm-center">
-            <div class="col-sm-3">
-                <mat-checkbox [(ngModel)]="checked">Remember me</mat-checkbox>
-            </div>
-        </div>
-        <div class="row justify-content-sm-center">
-            <div class="col-sm-3">
-                <button id="BtnLogin" class="width-100" nbButton status="danger" type="button" (click)="login()">
-                    &nbsp;Login
-                </button>
-            </div>
-        </div>
-    </nb-card-body>
-</nb-card> -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-7 col-xl-8 no-gap">
             <div class="bg-main-page">
                 <div class="caption">
-                    <div class="title">Welcome to TMS System</div>
+                    <div class="title">ระบบการจัดการการขนส่ง</div>
                     <div class="sub-title">
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem cum deleniti
@@ -73,13 +24,17 @@
                 </div>
                 <form action="" class="form-style full">
                     <div class="list-input is-icon user">
-                        <input type="text" id="username" value="" placeholder="example@mail.com" [formControl]="validate.user">
+                        <input type="text" id="username" value="" placeholder="example@mail.com"
+                            [formControl]="validate.user">
                     </div>
-                    <div *ngIf="validate.user.errors?.required && login_click" style="color: red;">Please assign email</div>
+                    <div *ngIf="validate.user.errors?.required && login_click" style="color: red;">Please assign email
+                    </div>
                     <div class="list-input is-icon password">
-                        <input type="password" id="password" value="" placeholder="••••••••" [formControl]="validate.password">
+                        <input type="password" id="password" value="" placeholder="••••••••"
+                            [formControl]="validate.password">
                     </div>
-                    <div *ngIf="validate.password.errors?.required && login_click" style="color: red;">Please assign password</div>
+                    <div *ngIf="validate.password.errors?.required && login_click" style="color: red;">Please assign
+                        password</div>
                     <div class="group mt-2 small-font">
                         <div class="item">
                             <div class="checkbox">

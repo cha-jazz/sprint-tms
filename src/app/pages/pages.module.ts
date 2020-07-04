@@ -12,6 +12,14 @@ import { SlotBookingSummaryModule } from './tms/slot-booking-summary/slot-bookin
 import { SlotBookingCreateModule } from './tms/slot-booking-create/slot-booking-create.component.module';
 import { SlotBookingDragDropModule } from './tms/slot-booking-drag-drop/slot-booking-drag-drop.component.module';
 import { SlotBookingSearchModule } from './tms/slot-booking-search/slot-booking-search.component.module';
+import { SlotBookingDeliveryTimeModule,
+} from './tms/slot-booking-delivery-time/slot-booking-delivery-time.component.module';
+import { SlotBookingBookSlotModule } from './tms/slot-booking-book-slot/slot-booking-book-slot.component.module';
+import { SlotPosSearchCustomerModule } from './tms/slot-pos-search-customer/slot-pos-search-customer.component.module';
+import { SlotPosAddCustomerModule } from './tms/slot-pos-add-customer/slot-pos-add-customer.component.module';
+import { SlotPosAuditModule } from './tms/slot-pos-audit/slot-pos-audit.component.module';
+import { SlotPosTicketModule } from './tms/slot-pos-ticket/slot-pos-ticket.component.module';
+import { SlotPosStepModule } from './tms/slot-pos-step/slot-pos-step.component.module';
 
 @NgModule({
   imports: [
@@ -22,10 +30,17 @@ import { SlotBookingSearchModule } from './tms/slot-booking-search/slot-booking-
     SlotBookingInfoModule,
     SlotBookingAddModule,
     SlotBookingCalendarModule,
-    SlotBookingSummaryModule,
     SlotBookingCreateModule,
-    SlotBookingDragDropModule,
     SlotBookingSearchModule,
+    SlotBookingDragDropModule,
+    SlotBookingSummaryModule,
+    SlotBookingDeliveryTimeModule,
+    SlotBookingBookSlotModule,
+    SlotPosSearchCustomerModule,
+    SlotPosAddCustomerModule,
+    SlotPosAuditModule,
+    SlotPosTicketModule,
+    SlotPosStepModule,
   ],
   declarations: [
     PagesComponent,

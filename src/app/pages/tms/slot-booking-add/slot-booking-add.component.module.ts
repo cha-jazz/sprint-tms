@@ -25,9 +25,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { ThemeModule } from '../../../@theme/theme.module';
 import { SlotBookingAddComponent } from './slot-booking-add.component';
-import { SmartTableComponent } from './smart-table/smart-table.component';
-// import { MapLeafletGeometryModule} from '../../shared/map-leaflet-geometry/map-leaflet-geometry.component.module';
-import { MapLeafletModule} from '../../shared/map-leaflet/map-leaflet.component.module';
+import { MapLeafletModule } from '../../shared/map-leaflet/map-leaflet.component.module';
 
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
@@ -86,7 +84,9 @@ import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
     providers: [CookieService],
     declarations: [
         SlotBookingAddComponent,
-        SmartTableComponent,
+    ],
+    exports: [
+        SlotBookingAddComponent,
     ],
 })
 export class SlotBookingAddModule { }

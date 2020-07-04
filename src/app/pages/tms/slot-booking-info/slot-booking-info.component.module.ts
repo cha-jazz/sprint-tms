@@ -24,7 +24,9 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { ThemeModule } from '../../../@theme/theme.module';
 import { SlotBookingInfoComponent } from './slot-booking-info.component';
-import { SmartTableComponent } from './smart-table/smart-table.component';
+
+import { ModalModule} from '../../shared/modal/modal.component.module';
+import { ToastModule} from '../../shared/toasts/toasts.component.module';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
@@ -43,41 +45,42 @@ import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
     imports: [
         ThemeModule,
         FormsModule,
-        NbActionsModule,
-        NbButtonModule,
-        NbCardModule,
-        NbTabsetModule,
-        NbUserModule,
-        NbRadioModule,
-        NbSelectModule,
-        NbListModule,
-        NbIconModule,
+        // NbActionsModule,
+        // NbButtonModule,
+        // NbCardModule,
+        // NbTabsetModule,
+        // NbUserModule,
+        // NbRadioModule,
+        // NbSelectModule,
+        // NbListModule,
+        // NbIconModule,
         HttpClientModule,
-        NbDatepickerModule,
-        NbInputModule,
-        NbDialogModule.forChild(),
-        NbPopoverModule,
-        NbSpinnerModule,
-        NbToggleModule,
+        // NbDatepickerModule,
+        // NbInputModule,
+        // NbDialogModule.forChild(),
+        // NbPopoverModule,
+        // NbSpinnerModule,
+        // NbToggleModule,
         MatTableModule,
         MatSortModule,
-        MatPaginatorModule,
-        MatAutocompleteModule,
+        // MatPaginatorModule,
+        // MatAutocompleteModule,
         MatInputModule,
-        MatIconModule,
-        MatButtonModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatRippleModule,
-        MatSelectModule,
+        // MatIconModule,
+        // MatButtonModule,
+        // MatDatepickerModule,
+        // MatNativeDateModule,
+        // MatRippleModule,
+        // MatSelectModule,
         ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
         TranslateModule,
+        ModalModule,
+        ToastModule,
 
     ],
     providers: [CookieService],
     declarations: [
         SlotBookingInfoComponent,
-        SmartTableComponent,
     ],
 })
 export class SlotBookingInfoModule { }

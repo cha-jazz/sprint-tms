@@ -1,1 +1,116 @@
-<ngx-smart-table></ngx-smart-table>
+<!-- Toasts -->
+<ngx-toast-warning-component [toast_message]="Toastdata"></ngx-toast-warning-component>
+
+
+<h1>การจองเวลานัดส่งสินค้าทั้งหมด <span>({{text.total_shipment_number}})</span></h1>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+        <li class="breadcrumb-item active" aria-current="page">Slot booking ทั้งหมด</li>
+    </ol>
+</nav>
+
+<div class="search-top-content">
+    <form action="" class="form-style">
+        <div class="list-input is-icon search">
+            <input type="text" id="" value="" (keyup)="applyFilter($event)" placeholder="ค้นหาข้อมูล">
+        </div>
+    </form>
+    <div class="booking-time">
+        <a href="#/pages/slot-booking-delivery-time"><i class="fas fa-plus"></i> จองเวลานัดส่งสินค้า</a>
+    </div>
+</div>
+
+<div class="table-list table-responsive">
+    <table class="table table-hover table-style" mat-table [dataSource]="table.data_source" matSort>
+
+        <ng-container matColumnDef="shipmentNumber">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-5"> เลขที่การจอง </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.shipmentNumber}}</div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="zoneName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell"> เส้นทาง </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.zoneName}}</div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="deliveryDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-7"> วันที่นัดหมาย </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div *ngIf="row.deliveryDate">{{dateFormat(row.deliveryDate)}}</div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="deliveryDateLabel">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-9"> รอบนัดหมาย </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.deliveryDateLabel}}</div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="skucode">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-8"> SKU </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.skucode}}</div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="productName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-5"> สินค้าหลัก </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.productName}}</div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="serviceName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-5"> ประเภทการบริการ </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.serviceName}}</div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="placeCodeSend">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-5"> สาขาที่จัดส่ง </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.placeCodeSend}}</div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="shipmentUser">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-5"> ผู้ทำการจอง </th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+                <div>{{row.shipmentUser}}</div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="timecount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="headCell width-5"> เวลาจองที่เหลือ </th>
+            <td mat-cell *matCellDef="let row; let i = index" class="time">
+                <div *ngIf="row.min!='00'||row.sec!='00'"><i class="far fa-clock"></i>&nbsp;{{row.timecount}}</div>
+                <div *ngIf="row.min=='00'&&row.sec=='00'">Time Up</div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef class="headCell width-5"> ลบ</th>
+            <td mat-cell *matCellDef="let row" class="bodyCell">
+                <a href="" data-toggle="modal" data-target="#popupDelete" (click)="modal_delete.slotInfoDelete(row)"
+                    ><i class="far fa-trash-alt"></i></a>
+                <!-- <button id="btn_delete{{row.bookingDate}}" class="btn-action" nbButton status="danger"
+                    (click)="action_delete(row)">
+                    <i class="far fa-trash-alt"></i>
+                </button> -->
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="table.displayed_columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: table.displayed_columns;" align="center"></tr>
+    </table>
+</div>
+
+<!-- Popup Delete -->
+<ngx-modal-delete-component (confirmDelete)="action_delete($event)" #modal_delete></ngx-modal-delete-component>

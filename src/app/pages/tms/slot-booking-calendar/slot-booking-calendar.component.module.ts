@@ -34,10 +34,8 @@ import * as moment from 'moment';
 
 import { ThemeModule } from '../../../@theme/theme.module';
 import { SlotBookingCalendarComponent } from './slot-booking-calendar.component';
-import { SmartTableComponent } from './smart-table/smart-table.component';
-import { CalendarHeaderComponent } from './demo-utils/calendar-header.component';
+import { CalendarSlotModule } from '../../shared/calendar/calendar.component.module';
 
-import { MatTableModule } from '@angular/material/table';
 // import { MatSortModule } from '@angular/material/sort';
 // import { MatPaginatorModule } from '@angular/material/paginator';
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -58,7 +56,7 @@ export function momentAdapterFactory() {
         FormsModule,
         CommonModule,
         // NbActionsModule,
-        NbButtonModule,
+        // NbButtonModule,
         NbCardModule,
         // NbTabsetModule,
         // NbUserModule,
@@ -71,9 +69,9 @@ export function momentAdapterFactory() {
         // NbInputModule,
         // NbDialogModule.forChild(),
         // NbPopoverModule,
-        NbSpinnerModule,
+        // NbSpinnerModule,
         // NbToggleModule,
-        MatTableModule,
+        // MatTableModule,
         // MatSortModule,
         // MatPaginatorModule,
         // MatAutocompleteModule,
@@ -85,30 +83,26 @@ export function momentAdapterFactory() {
         // MatRippleModule,
         // MatSelectModule,
         ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
+        CalendarSlotModule,
         // TranslateModule,
-        CalendarModule.forRoot(
-            {
-                provide: DateAdapter,
-                useFactory: momentAdapterFactory,
-            },
-            {
-                dateFormatter: {
-                    provide: CalendarDateFormatter,
-                    useClass: CalendarMomentDateFormatter,
-                },
-            },
-        ),
+        // CalendarModule.forRoot(
+        //     {
+        //         provide: DateAdapter,
+        //         useFactory: momentAdapterFactory,
+        //     },
+        //     {
+        //         dateFormatter: {
+        //             provide: CalendarDateFormatter,
+        //             useClass: CalendarMomentDateFormatter,
+        //         },
+        //     },
+        // ),
     ],
-    providers: [
-        // CookieService,
-        {
-        provide: MOMENT,
-        useValue: moment,
-    }],
     declarations: [
         SlotBookingCalendarComponent,
-        SmartTableComponent,
-        CalendarHeaderComponent,
+    ],
+    exports: [
+        SlotBookingCalendarComponent,
     ],
 })
 export class SlotBookingCalendarModule { }

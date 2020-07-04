@@ -10,7 +10,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 @Component({
   selector: 'ngx-smart-table',
   templateUrl: './smart-table.component.html',
-  styleUrls: ['../../../../shared/main.scss', './smart-table.component.scss'],
+  // styleUrls: ['../../../../shared/main.scss', './smart-table.component.scss'],
 })
 
 export class SmartTableComponent implements OnInit {

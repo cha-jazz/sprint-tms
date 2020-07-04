@@ -1,0 +1,111 @@
+<div class="blog-inside-content">
+    <div class="group-head-blog">
+        <div class="title">ค้นหาข้อมูลลูกค้า</div>
+        <div class="btn">
+            <a href="pos-slot-add-customer.html" class="btn-icon-inside"><i class="fas fa-plus"></i>
+                เพิ่มข้อมูลลูกค้าใหม่</a>
+        </div>
+    </div>
+    <div class="search-customer">
+        <div class="group-search">
+            <form action="" class="form-in-card form-style">
+                <div class="">
+                    <label for="searchValue" class="required">ค้นหาข้อมูลจาก</label>
+                </div>
+                <div class="">
+                    <!-- <select name="" id="typeSearch">
+                        <option value="">เลขบัตรประชาชน/ Passport</option>
+                        <option value="">รหัสลูกค้า</option>
+                    </select> -->
+                    <select name="" id="typeSearch" [formControl]="search.type"
+                        (change)="onSelectionChangeType($event)">
+                        <option value="">- Please Select -</option>
+                        <option *ngFor="let item of select.type" [ngValue]="item">
+                            {{item.name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="list-input is-icon search">
+                    <input type="text" id="searchValue" value="" placeholder="ค้นหาจากเงื่อนไข">
+                </div>
+                <div class="">
+                    <button type="submit" class="btn-style fix-width theme4">ค้นหาข้อมูล</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="list-search-result">
+            <table class="table table-hover table-style tbl-color-2 tbl-theme2">
+                <thead>
+                    <tr>
+                        <th scope="col">เลือกใช้ข้อมูล</th>
+                        <th scope="col">ชื่อ-นามสกุล</th>
+                        <th scope="col">E-MAIL</th>
+                        <th scope="col">เบอร์โทรศัพท์</th>
+                        <th scope="col">ที่อยู่</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label class="group-radio no-gap no-label">
+                                <input type="radio" name="radio-profile" checked>
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <div class="profile-in-tbl">
+                                <div class="pic"><img src="./assets/images/profile.png" alt=""></div>
+                                <div class="name">
+                                    นาย สมชาย นำเมือง
+                                    <span>The 1 Card</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>example@mail.com</td>
+                        <td>088-888-8888</td>
+                        <td>762 โครงการบ้านกลางเมือง แขวงบางหว้า เขตภาษีเจริญ 10160</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label class="group-radio no-gap no-label">
+                                <input type="radio" name="radio-profile">
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <div class="profile-in-tbl">
+                                <div class="pic"><img src="./assets/images/profile.png" alt=""></div>
+                                <div class="name">
+                                    นาย สมชาย นำเมือง
+                                    <span>ข้อมูล TMS</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>example@mail.com</td>
+                        <td>088-888-8888</td>
+                        <td>762 โครงการบ้านกลางเมือง แขวงบางหว้า เขตภาษีเจริญ 10160</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination justify-content-end">
+                <ul class="">
+                    <li class="disabled icon-pagination"><a href="javascript:;"><i class="fas fa-chevron-left"></i></a>
+                    </li>
+                    <li class="active"><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">...</a></li>
+                    <li><a href="">10</a></li>
+                    <li class="active icon-pagination"><a href=""><i class="fas fa-chevron-right"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="text-center">
+                <a href="pos-slot-audit.html" class="btn-style theme2">ตรวจสอบข้อมูล</a>
+            </div>
+        </div>
+    </div>
+</div>

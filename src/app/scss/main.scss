@@ -1,0 +1,36 @@
+/*#region Table*/
+th.mat-header-cell {
+    text-align: center
+}
+.mat-header-cell {
+    color: unset;
+    font-size: unset;
+    font-weight: unset;
+}
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+    padding: 1% !important;
+}
+::ng-deep .mat-sort-header-container {
+    display: flex;
+    justify-content: center;
+}
+.mat-table {
+    font-family: unset ;
+}
+.mat-cell, .mat-footer-cell {
+    font-size: unset;
+}
+/*#endregion */
+
+/*#region Autocomplete*/
+.mat-option {
+    font-family: unset;
+    font-size: 120%;
+    color: unset;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+::ng-deep .mat-autocomplete-panel {
+    background: #eff4f8;
+}
+/*#endregion */

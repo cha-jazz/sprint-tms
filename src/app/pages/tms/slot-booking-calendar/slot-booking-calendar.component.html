@@ -1,1 +1,62 @@
-<ngx-smart-table></ngx-smart-table>
+<div class="card-body">
+    <div>
+        <div class="row mb-4"></div>
+        <div class="row mb-2">
+            <div class="col-12 col-sm-2 offset-sm-2 text-left">
+                <mat-label class="information">สินค้า</mat-label>
+            </div>
+            <div class="col-12 col-sm-7">
+                {{header.product}}
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-12 col-sm-2 offset-sm-2 text-left">
+                <mat-label class="information">พื้นที่จัดส่ง</mat-label>
+            </div>
+            <div class="col-12 col-sm-7">
+                {{header.delivery_address}}
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-12 col-sm-2 offset-sm-2 text-left">
+                <mat-label class="information">สาขาที่จัดส่ง</mat-label>
+            </div>
+            <div class="col-12 col-sm-7">
+                {{header.delivery_store}}
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-12 col-sm-2 offset-sm-2 text-left">
+                <mat-label class="information">เบิกสินค้าจากสาขา</mat-label>
+            </div>
+            <div class="col-12 col-sm-7">
+                {{header.other_store}}
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-12 col-sm-2 offset-sm-2 text-left">
+                <mat-label class="information">โซน</mat-label>
+            </div>
+            <div class="col-12 col-sm-7">
+                {{header.zone_select}}
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-12 col-sm-2 offset-sm-2 text-left">
+                <mat-label class="information">ประเภทการบริการ</mat-label>
+            </div>
+            <div class="col-12 col-sm-7">
+                {{header.service_type}}
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-12 col-sm-2 offset-sm-2 text-left">
+                <mat-label class="information">ประเภทการจัดส่ง</mat-label>
+            </div>
+            <div class="col-12 col-sm-7">
+                {{header.delivery_type}}
+            </div>
+        </div>
+        <ngx-calendar-slot></ngx-calendar-slot>
+    </div>
+</div>

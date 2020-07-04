@@ -11,6 +11,9 @@ import { SlotBookingSummaryComponent } from './tms/slot-booking-summary/slot-boo
 import { SlotBookingCreateComponent } from './tms/slot-booking-create/slot-booking-create.component';
 import { SlotBookingDragDropComponent } from './tms/slot-booking-drag-drop/slot-booking-drag-drop.component';
 import { SlotBookingSearchComponent } from './tms/slot-booking-search/slot-booking-search.component';
+import { SlotBookingDeliveryTimeComponent,
+ } from './tms/slot-booking-delivery-time/slot-booking-delivery-time.component';
+import { SlotPosStepComponent } from './tms/slot-pos-step/slot-pos-step.component';
 
 const routes: Routes = [{
   path: '',
@@ -22,21 +25,37 @@ const routes: Routes = [{
       canActivate: [AdminGuard],
     },
     {
-      path: 'slot-booking-add',
-      component: SlotBookingAddComponent,
+      path: 'slot-booking-delivery-time',
+      component: SlotBookingDeliveryTimeComponent,
       canActivate: [AdminGuard],
       data: {
         expectedRole: 'admin',
       },
     },
     {
-      path: 'slot-booking-calendar',
-      component: SlotBookingCalendarComponent,
+      path: 'slot-pos-step',
+      component: SlotPosStepComponent,
       canActivate: [AdminGuard],
       data: {
         expectedRole: 'admin',
       },
     },
+    // {
+    //   path: 'slot-booking-add',
+    //   component: SlotBookingAddComponent,
+    //   canActivate: [AdminGuard],
+    //   data: {
+    //     expectedRole: 'admin',
+    //   },
+    // },
+    // {
+    //   path: 'slot-booking-calendar',
+    //   component: SlotBookingCalendarComponent,
+    //   canActivate: [AdminGuard],
+    //   data: {
+    //     expectedRole: 'admin',
+    //   },
+    // },
     {
       path: 'slot-booking-create',
       component: SlotBookingCreateComponent,

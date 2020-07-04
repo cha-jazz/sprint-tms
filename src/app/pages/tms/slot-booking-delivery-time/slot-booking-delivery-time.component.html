@@ -1,0 +1,42 @@
+<h1>สร้างเวลานัดส่งสินค้า</h1>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+        <li class="breadcrumb-item"><a href="#/pages/slot-booking-info">Slot booking ทั้งหมด</a></li>
+        <li class="breadcrumb-item active" aria-current="page">สร้าง Slot booking</li>
+    </ol>
+</nav>
+
+<div class="accordion collapse-style" id="collapse-book-a-slot">
+    <div class="card">
+        <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">
+            <span>ขั้นตอนที่ 1</span> - ระบุรายละเอียดการจัดส่ง
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#collapse-book-a-slot">
+            <div class="card-body">
+                <ngx-slot-booking-add (confirmAdd)="calendar_slot.showData($event)"></ngx-slot-booking-add>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header collapsed" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <span>ขั้นตอนที่ 2</span> - เลือกวันและ Slot ที่ว่าง
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#collapse-book-a-slot">
+            <ngx-slot-booking-calendar #calendar_slot></ngx-slot-booking-calendar>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header collapsed" id="headingThree" data-toggle="collapse" data-target="#collapseThree"
+            aria-expanded="true" aria-controls="collapseThree">
+            <span>ขั้นตอนที่ 3</span> - สรุปข้อมูลการนัดหมาย
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#collapse-book-a-slot">
+            <ngx-slot-booking-book-slot></ngx-slot-booking-book-slot>
+        </div>
+    </div>
+</div>

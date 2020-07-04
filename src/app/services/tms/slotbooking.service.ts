@@ -21,7 +21,7 @@ export class SlotBookingService {
 
     keyLock(event) {
         if ((event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40)
-            || event.target.value.trim().length <= 3) {
+            || event.target.value.trim().length <= 2) {
             return false;
         }
         return true;
@@ -32,6 +32,7 @@ export class SlotBookingService {
             let params = new HttpParams();
             params = params.append('buCode', req.buCode);
             params = params.append('placeCode', req.placeCode);
+            console.log('param',params);
             let api = this.configService.getPath().TMS.SlotBooking + 'api/BookingLogs/search';
             console.log('api', api);
 
@@ -39,7 +40,7 @@ export class SlotBookingService {
                 .toPromise();
             return result;
         } catch (error) {
-            this.alertTMSService.AlertError(error);
+            // this.alertTMSService.AlertError(error);
         }
     }
     async getBookingCancel(req) {
@@ -48,6 +49,7 @@ export class SlotBookingService {
             params = params.append('buCode', req.buCode);
             params = params.append('bookingNumber', req.bookingNumber);
             params = params.append('userCode', req.userCode);
+            console.log('param',params);
             let api = this.configService.getPath().TMS.SlotBooking + 'api/BookingLogs/cancel';
             console.log('api', api);
 
@@ -55,7 +57,8 @@ export class SlotBookingService {
                 .toPromise();
             return result;
         } catch (error) {
-            this.alertTMSService.AlertError(error);
+            return error;
+            // this.alertTMSService.AlertError(error);
         }
     }
 
@@ -90,6 +93,7 @@ export class SlotBookingService {
             let params = new HttpParams();
             params = params.append('buCode', req.buCode);
             params = params.append('productCode', req.productCode);
+            console.log('param',params);
             let api = this.configService.getPath().TMS.Master + 'api/ServiceTypes/productServiceType';
             console.log('api', api);
 
@@ -105,6 +109,7 @@ export class SlotBookingService {
         try {
             let params = new HttpParams();
             params = params.append('searchText', req.searchText);
+            console.log('param',params);
             let api = this.configService.getPath().TMS.Master + 'api/subdistricts/shippingArea';
             console.log('api', api);
 
@@ -122,6 +127,7 @@ export class SlotBookingService {
             params = params.append('buCode', req.buCode);
             params = params.append('serviceTypeCode', req.serviceTypeCode);
             params = params.append('subDistrictCode', req.subDistrictCode);
+            console.log('param',params);
             let api = this.configService.getPath().TMS.Master + 'api/places/branchsender';
             console.log('api', api);
 
@@ -138,6 +144,7 @@ export class SlotBookingService {
             let params = new HttpParams();
             params = params.append('buCode', req.buCode);
             params = params.append('deliveryPlaceCode', req.deliveryPlaceCode);
+            console.log('param',params);
             let api = this.configService.getPath().TMS.Master + 'api/places/pickupPlace';
             console.log('api', api);
 
@@ -156,6 +163,7 @@ export class SlotBookingService {
             params = params.append('serviceTypeCode', req.serviceTypeCode);
             params = params.append('sendStoreCode', req.sendStoreCode);
             params = params.append('subDistrictCode', req.subDistrictCode);
+            console.log('param',params);
             let api = this.configService.getPath().TMS.Master + 'api/zones/availZone';
             console.log('api', api);
 
@@ -176,8 +184,8 @@ export class SlotBookingService {
             params = params.append('searchStartDate', req.searchStartDate);
             params = params.append('searchEndDate', req.searchEndDate);
             params = params.append('deliveryOptionCode', req.deliveryOptionCode);
-
-            let api = this.configService.getPath().TMS.SlotBooking + 'api/SlotBooking/search';
+            console.log('param',params);
+            let api = this.configService.getPath().TMS.SlotBooking + 'api/SlotBooking/availableslot';
             console.log('api', api);
 
             let result = await this.client.get(api, { params: params })
@@ -198,14 +206,13 @@ export class SlotBookingService {
                 zoneCode: req.zoneCode,
                 productCode: req.productCode,
                 deliveryOptionCode: req.deliveryOptionCode,
-                truckCategoryCode: req.truckCategoryCode,
                 bookingDate: req.bookingDate,
-                slotCode: req.slotCode,
+                slotSequence: req.slotSequence,
                 userCode: req.userCode,
             }
             console.log('send_data', send_data);
 
-            let api = this.configService.getPath().TMS.SlotBooking + 'api/SlotBooking/bookslot';
+            let api = this.configService.getPath().TMS.SlotBooking + 'api/SlotBooking/books';
             console.log('api', api);
 
             let result = await this.client.post(api, send_data, httpOptions)

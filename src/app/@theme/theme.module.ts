@@ -41,8 +41,6 @@ import { CORPORATE_THEME } from './styles/theme.corporate';
 import { DARK_THEME } from './styles/theme.dark';
 
 import {TranslateModule} from '@ngx-translate/core';
-import {MatSelectModule} from '@angular/material/select';
-import {MatIconModule} from '@angular/material/icon';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -80,8 +78,6 @@ const PIPES = [
   imports: [
     CommonModule, ...NB_MODULES,
     TranslateModule,
-    MatSelectModule,
-    MatIconModule,
     ],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
   declarations: [...COMPONENTS, ...PIPES],

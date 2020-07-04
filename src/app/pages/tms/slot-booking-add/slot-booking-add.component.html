@@ -1,1 +1,266 @@
-<ngx-smart-table></ngx-smart-table>
+<div class="card-body">
+    <form action="" class="form-in-card gap-add-row">
+        <div class="row">
+            <div class="col-12">
+                <div class="group-input" [ngClass]="css.product">
+                    <label for="nameBarcode" class="required">กรุณาระบุสินค้า</label>
+                    <div class="add-data">
+                        <input type="text" matInput [formControl]="submit_data.product" [matAutocomplete]="auto_product"
+                            (keyup)="onKeyMainProduct($event)">
+                        <mat-autocomplete #auto_product="matAutocomplete"
+                            (optionSelected)="onSelectionChangeProduct($event)" [displayWith]="displayFn_product">
+                            <mat-option *ngFor="let item of filteredOptions_product | async" [value]="item">
+                                {{item.name}}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <span class="error-txt">ไม่พบสินค้าจากชื่อสินค้า หรือ Barcode ที่กรอก</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="group-input" [ngClass]="css.delivery_type">
+                    <label for="typeSend" class="required">ประเภทการจัดส่ง</label>
+                    <div class="add-data">
+                        <select name="" id="typeSend" [formControl]="submit_data.delivery_type"
+                            (change)="onSelectionChangeDeliveryType($event)">
+                            <option value="">- Please Select -</option>
+                            <option *ngFor="let item of select.delivery_type" [ngValue]="item">
+                                {{item.nameEn}}
+                            </option>
+                        </select>
+                        <span class="error-txt">กรุณาระบุประเภทการจัดส่ง</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="group-input" [ngClass]="css.service_type">
+                    <label for="typeService" class="required no-gap-right">ประเภทการบริการ</label>
+                    <div class="add-data">
+                        <select [formControl]="submit_data.service_type"
+                            (change)="onSelectionChangeServiceType($event)">
+                            <option value="">- Please Select -</option>
+                            <option *ngFor="let item of select.service_type" [ngValue]="item">
+                                {{item.serviceNameEN}}
+                            </option>
+                        </select>
+                        <span class="error-txt">กรุณาระบุประเภทการบริการ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="group-input" [ngClass]="css.delivery_address">
+                    <label for="areaSend" class="required">พื้นที่จัดส่ง</label>
+                    <div class="add-data">
+                        <input type="text" matInput [formControl]="submit_data.delivery_address"
+                            [matAutocomplete]="auto_delivery_address" (keyup)="onKeyMainDeliveryAddress($event)">
+                        <mat-autocomplete #auto_delivery_address="matAutocomplete"
+                            (optionSelected)="onSelectionChangeDeliveryAddress($event)"
+                            [displayWith]="displayFn_delivery_address">
+                            <mat-option *ngFor="let item of filteredOptions_delivery_address | async" [value]="item">
+                                {{item.nameLocal}}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <span class="error-txt">ไม่พบพื้นที่จัดส่ง</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="group-input" [ngClass]="css.delivery_store">
+                    <label for="branch" class="required">สาขาที่จัดส่ง</label>
+                    <div class="add-data">
+                        <select [formControl]="submit_data.delivery_store" [compareWith]="compareFnDeliveryStore"
+                            (change)="onSelectionChangeDeliveryStore($event)" (change)="map_geometry.hideMap()">
+                            <option value="">- Please Select -</option>
+                            <option *ngFor="let item of select.delivery_store" [ngValue]="item">
+                                {{item.branch}}
+                            </option>
+                        </select>
+                        <span class="error-txt">กรุณาระบุสาขาที่จัดส่ง</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="group-input " [ngClass]="css.other_store">
+                    <label for="getBranch" class="required no-gap-right">เบิกสินค้าจากสาขา</label>
+                    <div class="add-data">
+                        <select [formControl]="submit_data.other_store" [compareWith]="compareFnOtherStore"
+                            (change)="onSelectionOtherStore($event)">
+                            <option value="">- Please Select -</option>
+                            <option *ngFor="let item of  select.other_store" [ngValue]="item">
+                                {{item.branch}}
+                            </option>
+                        </select>
+                        <span class="error-txt">กรุณาระบุสินค้าจากสาขาอื่น</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="group-input align-top" [ngClass]="css.zone_select">
+                    <label for="areaSend" class="required">ระบุโซน</label>
+                    <div class="add-data">
+                        <div *ngFor="let item of select.zones">
+                            <label class="group-radio">
+                                <input type="radio" name="radio" [value]="item" (change)="onSelectZone($event)"
+                                    (change)="map_geometry.getZone(submit_data.zone_select)"
+                                    [formControl]="submit_data.zone_select">
+                                <span class="checkmark"></span>
+                                {{item.zoneNameLocal}}
+                            </label>
+                        </div>
+                        <span class="error-txt">กรุณาระบุโซน</span>
+                        <div class="maps-in-form">
+                            <div class="size_map">
+                                <ngx-map-geometry-component #map_geometry></ngx-map-geometry-component>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 text-center">
+                <a href="javascript:;" class="btn-style theme2" (click)="create()">ขั้นตอนถัดไป <i
+                        class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- <div>
+    <nb-card>
+        <nb-card-header>
+            <div class="row ">
+                <div class="col-12 col-sm-12 text-center">
+                    <h5>จอง Slot Booking</h5>
+                </div>
+            </div>
+        </nb-card-header>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-12 col-sm-8 offset-sm-2 mainText">
+                    <mat-label class="information">สินค้า<span class="textRed">*</span></mat-label>
+                    <mat-form-field appearance="outline" class="example-full-width ">
+                        <input #pref_product type="text" matInput [formControl]="submit_data.product"
+                            [matAutocomplete]="auto_product" (keyup)="onKeyMainProduct($event)">
+                        <mat-autocomplete #auto_product="matAutocomplete"
+                            (optionSelected)="onSelectionChangeProduct($event)" [displayWith]="displayFn_product">
+                            <mat-option *ngFor="let item of filteredOptions_product | async" [value]="item">
+                                {{item.name}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-4  offset-sm-2 mainText">
+                    <mat-label class="information">ประเภทการจัดส่ง<span class="textRed">*</span></mat-label>
+                    <mat-form-field appearance="outline" class="example-full-width ">
+                        <mat-select [formControl]="submit_data.delivery_type"
+                            (selectionChange)="onSelectionChangeDeliveryType($event)">
+                            <mat-option value="">- Please Select -</mat-option>
+                            <mat-option *ngFor="let item of select.delivery_type" [value]="item">
+                                {{item.nameEn}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="submit_data.delivery_type.errors?.required">กรุณาระบุประเภทการจัดส่ง
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 col-sm-4  mainText">
+                    <mat-label class="information">ประเภทการบริการ<span class="textRed">*</span></mat-label>
+                    <mat-form-field appearance="outline" class="example-full-width ">
+                        <mat-select [formControl]="submit_data.service_type"
+                            (selectionChange)="onSelectionChangeServiceType($event)">
+                            <mat-option value="">- Please Select -</mat-option>
+                            <mat-option *ngFor="let item of select.service_type" [value]="item">
+                                {{item.serviceName}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="submit_data.service_type.errors?.required">กรุณาระบุประเภทการบริการ
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-8  offset-sm-2 mainText">
+                    <mat-label class="information">พื้นที่จัดส่ง<span class="textRed">*</span></mat-label>
+                    <mat-form-field appearance="outline" class="example-full-width ">
+                        <input #pref_delivery_address type="text" matInput [formControl]="submit_data.delivery_address"
+                            [matAutocomplete]="auto_delivery_address" (keyup)="onKeyMainDeliveryAddress($event)">
+                        <mat-autocomplete #auto_delivery_address="matAutocomplete"
+                            (optionSelected)="onSelectionChangeDeliveryAddress($event)"
+                            [displayWith]="displayFn_delivery_address">
+                            <mat-option *ngFor="let item of filteredOptions_delivery_address | async" [value]="item">
+                                {{item.nameLocal}}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <mat-error *ngIf="submit_data.delivery_address.errors?.required">กรุณาระบุพื้นที่จัดส่ง
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-4 offset-sm-2 mainText">
+                    <mat-label class="information">สาขาที่จัดส่ง<span class="textRed">*</span></mat-label>
+                    <mat-form-field appearance="outline" class="example-full-width ">
+                        <mat-select [formControl]="submit_data.delivery_store" [compareWith]="compareItems"
+                            (selectionChange)="onSelectionChangeDeliveryStore($event)">
+                            <mat-option value="">- Please Select -</mat-option>
+                            <mat-option *ngFor="let item of select.delivery_store" [value]="item">
+                                {{item.placeNameLocal}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="submit_data.delivery_store.errors?.required">กรุณาระบุสาขาที่จัดส่ง
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 col-sm-4 mainText">
+                    <mat-checkbox [formControl]="submit_data.check_other_store"
+                        (change)="onChangeCheckOtherStore($event)">
+                    </mat-checkbox>
+                    <mat-label class="information">&nbsp;เบิกสินค้าจากสาขาอื่น</mat-label>
+                    <mat-form-field appearance="outline" class="example-full-width ">
+                        <mat-select [formControl]="submit_data.other_store">
+                            <mat-option value="">- Please Select -</mat-option>
+                            <mat-option *ngFor="let item of  select.other_store" [value]="item">
+                                {{item.placeNameLocal}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12 col-sm-8 offset-sm-2">
+                    <mat-label class="information">&nbsp;ระบุโซน<span class="textRed">*</span></mat-label>
+                    <mat-error
+                        *ngIf="submit_data.zone_select.errors?.required && submit_data.click==true && select.zones.length!=0">
+                        กรุณาระบุโซน</mat-error>
+                    <div class="scroll-bar-y-radio">
+                        <mat-radio-group [formControl]="submit_data.zone_select"
+                            aria-labelledby="example-radio-group-label" class="example-radio-group">
+                            <mat-radio-button class="example-radio-button" *ngFor="let item of select.zones"
+                                [value]="item" (change)="onSelectZone($event)" (change)="map_geometry.getZone($event)">
+                                <div class="row-wrap">
+                                    {{item.zoneNameLocal}}
+                                </div>
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-sm-center mb-4">
+                <div class="size_map">
+                    <ngx-map-geometry-component #map_geometry></ngx-map-geometry-component>
+                </div>
+            </div>
+            <div class="row justify-content-sm-center">
+                <div class="col-12 col-sm-auto">
+                    <button nbButton fullWidth status="primary" (click)="create()"><i
+                            class="fas fa-pencil-alt"></i>&nbsp;แสดงรอบเวลาจัดส่ง</button>
+                </div>
+                <div class="col-12 col-sm-auto">
+                    <button nbButton fullWidth status="danger" (click)="reset()" (click)="map_geometry.hideMap()"><i
+                            class="fas fa-sync-alt"></i>&nbsp;เริ่มใหม่</button>
+                </div>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div> -->

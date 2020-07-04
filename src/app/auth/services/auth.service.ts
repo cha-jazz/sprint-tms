@@ -8,7 +8,8 @@ export class AuthService {
   constructor() { }
 
   checkIsLoggIn() {
-    if (localStorage.getItem('roleTMS')) {
+    if (localStorage.getItem('roleTMS') && localStorage.getItem('placeCodeTMS')
+      && localStorage.getItem('buCodeTMS')) {
       return true;
     } else {
       return false;

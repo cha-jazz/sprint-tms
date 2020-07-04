@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import { PagesComponent } from '../../../pages/pages.component';
 @Component({
   selector: 'ngx-header',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: [],
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
@@ -106,16 +106,14 @@ export class HeaderComponent implements OnInit {
   //   this.themeService.changeTheme(themeName);
   // }
 
-  toggleSidebar(): boolean {
-    this.sidebarService.toggle(true, 'menu-sidebar');
-    this.layoutService.changeLayoutSize();
-
-    return false;
+  toggleSidebar() {
+    $('header, .sidebar, .wrapper-content').toggleClass('reduce-size');
   }
 
   navigateHome() {
-    this.menuService.navigateHome();
-    return false;
+    // this.menuService.navigateHome();
+    // return false;
+    this.router.navigateByUrl('auth/login');
   }
 
   getLang() {

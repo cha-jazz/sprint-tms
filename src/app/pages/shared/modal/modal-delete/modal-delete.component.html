@@ -1,0 +1,20 @@
+<!-- Popup Delete -->
+<div class="modal fade popup-style" id="popupDelete" tabindex="-1" role="dialog" aria-labelledby="popupDelete"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="icon"><i class="far fa-trash-alt"></i></div>
+                <div class="title">{{modal.title}}</div>
+                <div class="sub-title">{{modal.sub_title}}</div>
+                <button type="button" class="btn btn-cancel" data-dismiss="modal">ยกเลิก</button>
+                <button type="button" class="btn btn-comfirm confirm-delete" (click)="delete(modal.data)">ลบ</button>
+            </div>
+        </div>
+    </div>
+</div>

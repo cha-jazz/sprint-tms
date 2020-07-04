@@ -7,11 +7,16 @@ import { MENU_ITEMS_EN, MENU_ITEMS_TH } from './pages-menu';
   selector: 'ngx-pages',
   styleUrls: ['pages.component.scss'],
   template: `
-    <ngx-one-column-layout>
-      <nb-menu [items]="menu"></nb-menu>
-      <router-outlet></router-outlet>
-    </ngx-one-column-layout>
-  `,
+  <ngx-one-column-layout>
+    <router-outlet></router-outlet>
+  </ngx-one-column-layout>
+`,
+  // template: `
+  //   <ngx-one-column-layout>
+  //     <nb-menu [items]="menu"></nb-menu>
+  //     <router-outlet></router-outlet>
+  //   </ngx-one-column-layout>
+  // `,
 })
 export class PagesComponent implements OnInit {
 

@@ -1,0 +1,23 @@
+<ngx-calendar-header [(view)]="view" [(viewDate)]="viewDate"></ngx-calendar-header>
+<ng-template #customCellTemplate let-day="day" let-locale="locale">
+    <div class="cal-cell-top">
+
+        <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+    </div>
+    <div class="cell-totals">
+        <span *ngFor="let group of day.eventTitle; index as i" class="badge"
+            [ngStyle]="{'background-color':  group[1].backgroundColor,'color': group[1].fontColor}">
+            <div (click)="handleEvent('Clicked', day.events[i])">
+                {{ group[0] }}
+            </div>
+        </span>
+    </div>
+</ng-template>
+
+<div [ngSwitch]="view">
+    <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events"
+        [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+        (eventClicked)="handleEvent('Clicked', $event.event)" [cellTemplate]="customCellTemplate"
+        (beforeViewRender)="beforeMonthViewRender($event)">
+    </mwl-calendar-month-view>
+</div>

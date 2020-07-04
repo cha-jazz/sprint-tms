@@ -1,0 +1,83 @@
+<nb-layout>
+    <nb-layout-column>
+        <ngx-header></ngx-header>
+
+        <div class="wrapper-content">
+            <div class="sidebar">
+                <ul class="list-menu-sidebar">
+                    <li class="">
+                        <a href="javascript:;"class="has-submenu"><i class="fas fa-exclamation-circle"></i> การขาย</a>
+                        <ul class="submenu">
+                            <li><a href="/#/pages/slot-booking-info">การจองเวลานัดส่งสินค้า</a></li>
+                            <li><a href="/#/pages/slot-pos-step">บันทึกรายการขายและนัดหมาย</a></li>
+                            <ul class="list-menu-sidebar">
+                                <li class="">
+                                    <a href="javascript:;" class="has-submenu"><i class="fas fa-exclamation-circle"></i>
+                                        การจัดเส้นทาง</a>
+                                    <ul class="submenu">
+                                        <li><a href="">การจัดรถ</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;" class="has-submenu"><i class="fas fa-exclamation-circle"></i>
+                            การจัดเส้นทาง</a>
+                        <ul class="submenu">
+                            <li><a href="">การจัดรถ</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">ประวัติการสั่งซื้อสินค้า</a></li>
+                    <li class="">
+                        <a href="javascript:;" class="has-submenu"><i class="fas fa-exclamation-circle"></i> Contact
+                            Center</a>
+                        <ul class="submenu">
+                            <li><a href="">ยืนยันการนัดหมายโดย Contact Center</a></li>
+                            <li><a href="">ขอเลื่อน / ยกเลิกรายการนัดหมาย</a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;" class="has-submenu"><i class="fas fa-exclamation-circle"></i>
+                            การตรวจสอบคุณภาพ
+                            -QC</a>
+                        <ul class="submenu">
+                            <li><a href="">ตรวจสอบการจัดส่งและการติดตั้ง</a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;" class="has-submenu"><i class="fas fa-exclamation-circle"></i>
+                            ระบบคลังสินค้า
+                            ส่งสาขา</a>
+                        <ul class="submenu">
+                            <li><a href="">ยืนยันการรับของจาก DC เข้าสาขา</a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;" class="has-submenu"><i class="fas fa-exclamation-circle"></i> รายงาน</a>
+                        <ul class="submenu">
+                            <li><a href="">รายงาน 1-10</a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;" class="has-submenu"><i class="fas fa-exclamation-circle"></i> ข้อมุล
+                            Master</a>
+                        <ul class="submenu">
+                            <li><a href="">ข้อมูลลูกค้า</a></li>
+                            <li><a href="">ข้อมูลรถ</a></li>
+                            <li><a href="">ประเภทบริการ Service Type</a></li>
+                            <li><a href="">ข้อมูลสินค้าและค่าขนส่ง</a></li>
+                            <li><a href="">ข้อมูลช่าง</a></li>
+                            <li><a href="">ซับคอนแทรค (Sub-Contract)</a></li>
+                            <li><a href="">จัดการ User</a></li>
+                            <li><a href="">กำหนด Role การใช้งาน</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="blog-content">
+                <ng-content select="router-outlet"></ng-content>
+            </div>
+        </div>
+    </nb-layout-column>
+</nb-layout>

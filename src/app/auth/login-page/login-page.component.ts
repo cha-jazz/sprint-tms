@@ -9,10 +9,7 @@ import { ConfigService } from '../../services/config-path.service';
 @Component({
   selector: 'ngx-logins',
   templateUrl: './login-page.component.html',
-
-  // styleUrls: ['../../shared/main.scss'],
-  // styleUrls: ['../../scss/home.scss', '../../scss/main.scss',
-  //   '../../scss/mixins.scss', '../../scss/variables.scss'],
+  styleUrls: [],
 })
 export class LoginComponent implements OnInit {
   @ViewChild('pRefUser', { static: false }) pRefUser: ElementRef;
@@ -34,27 +31,11 @@ export class LoginComponent implements OnInit {
   login_click = false;
 
   ngOnInit() {
-    if (localStorage.getItem('userName') !== '') {
-      this.validateBind.user = localStorage.getItem('userName');
-      this.validateBind.password = localStorage.getItem('password');
-      this.checked = Boolean(localStorage.getItem('checkBoxValidation'));
-    }
-  }
-  alertError(error) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      html: '<b>Status Code :</b>' + error.status + '<br><b>Status Reason :</b>' + error.message,
-      allowOutsideClick: false,
-    });
-  }
-  alertErrorDataResponse(data) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      html: '<b>Status Code :</b>' + data.Status + '<br><b>Status Reason :</b>' + data.Message,
-      allowOutsideClick: false,
-    });
+    // if (localStorage.getItem('userName') !== '') {
+    //   this.validateBind.user = localStorage.getItem('userName');
+    //   this.validateBind.password = localStorage.getItem('password');
+    //   this.checked = Boolean(localStorage.getItem('checkBoxValidation'));
+    // }
   }
   onKeyEnter(event: any) {
     if (event.code === 'Enter') {
@@ -79,6 +60,8 @@ export class LoginComponent implements OnInit {
       this.loading = true;
       localStorage.setItem('userNameTMS', this.validate.user.value);
       localStorage.setItem('passwordTMS', this.validate.password.value);
+      localStorage.setItem('placeCodeTMS', '00002');
+      localStorage.setItem('buCodeTMS', 'PWB');
       if (this.validate.user.value === 'admin') {
         localStorage.setItem('roleTMS', 'admin');
       } else {
